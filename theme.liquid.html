@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="{{ params.language }}" style="height:100%;">
+  <head>
+    {% section 'shop_setting' %}
+
+    <!-- for vendor -->
+    {{ 'css/vendor.css' | asset_url | stylesheet_tag }}
+
+    <!-- common css rulesets -->
+    {{ 'css/common.css' | cyberbiz_theme_asset_url | stylesheet_tag }}
+
+    <!-- for navbar -->
+    {{ 'css/navbar.css' | cyberbiz_theme_asset_url | stylesheet_tag }}
+
+    <!-- for footer -->
+    {{ 'css/footer.css' | cyberbiz_theme_asset_url | stylesheet_tag }}
+
+    <!-- theme assets -->
+    {{ 'css/main.css' | cyberbiz_theme_asset_url | stylesheet_tag }}
+
+    <!-- custom css -->
+    <style>
+    .qk-hidden--pc {
+        display: none;
+    }
+    
+    #template{
+        padding-top: 50px;
+    }
+
+
+    @media (max-width: 991px) {
+
+        
+        .qk-hidden--mobile.qk-hidden--mobile {
+            display: block;
+    
+        }
+    
+        .qk-hidden--pc {
+            display: block;
+            width: 50px;
+            position: relative;
+            top: -80px;
+        }
+    
+    
+        .qk-hidden--pc .logo {
+            display: none;
+        }
+    
+        .qk-hidden--pc .search {
+            display: none;
+        }
+    
+    }
+    
+    </style>
+    <!-- custom css -->    
+
+
+    <!-- for vendor -->
+    {{ 'js/vendor.js' | cyberbiz_theme_asset_url | script_tag }}
+
+    
+    {{ content_for_header }}
+
+    {% section 'color_settings' %}
+
+  </head>
+
+  <body style="display: flex; flex-direction: column;">
+    <!-- Navigation -->
+    {% section 'navbar' %}
+
+    <!-- template -->
+    <div id="template" style="flex:1 0 auto; background-color: var(--theme_bg);">
+      {{ content_for_layout }}
+    </div>
+
+    <!-- Footer -->
+    {% section 'footer' %}
+
+    <!-- Fast-Events -->
+    {% include 'fast_events' %}
+
+      <div class="bottom-right qk-pos--fixed">
+      <!-- gototop -->
+      <div id="gototop" class="qk-display--none qk-text--center">
+        <a href="javascript:void(0)" class="qk-circle qk-circle--lg qk-pos--relative qk-text--center">
+          <i class="fas fa-chevron-up"></i>
+        </a>
+      </div>
+
+      <!-- popup -->
+      {% section 'popup' %}
+    </div>
+
+    <!-- ajaxloading -->
+    <div id="ajaxloading" class="qk-display--none qk-h--100vh qk-w--100vw qk-l--0 qk-t--0 qk-pos--fixed">
+      <div class="ajaxbody qk-pos--abs qk-l--50 qk-t--50 qk-text--center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          width="73.4"
+          height="73.4"
+          viewBox="0 0 73.4 73.4">
+          <circle
+            class="circle"
+            fill="none"
+            stroke="#898989"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-miterlimit="10"
+            cx="36.7"
+            cy="36.7"
+            r="35.2" />
+          <polyline
+            class="success_path"
+            fill="none"
+            stroke="#898989"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-miterlimit="10"
+            points="23.7,36.8 32.4,45.4 49.7,28 " />
+          <path
+            class="success_icon"
+            fill="#898989"
+            d="M32.5,46.9c-0.4,0-0.8-0.2-1.1-0.4l-8.6-8.6c-0.6-0.6-0.6-1.5,0-2.1s1.5-0.6,2.1,0l7.5,7.5L48.6,27c0.6-0.6,1.5-0.6,2.1,0s0.6,1.5,0,2.1L33.5,46.5C33.2,46.7,32.9,46.9,32.5,46.9L32.5,46.9z" />
+          <line
+            class="fail_path"
+            fill="none"
+            stroke="#898989"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-miterlimit="10"
+            x1="26.6"
+            y1="26.6"
+            x2="46.8"
+            y2="46.8" />
+          <line
+            class="fail_path"
+            fill="none"
+            stroke="#898989"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-miterlimit="10"
+            x1="46.8"
+            y1="26.6"
+            x2="26.6"
+            y2="46.8" />
+          <path
+            class="fail_icon"
+            fill="#898989"
+            d="M38.7,36.7l9.1-9.1c0.6-0.6,0.6-1.5,0-2.1s-1.5-0.6-2.1,0l-9.1,9.1l-9.1-9.1c-0.6-0.6-1.5-0.6-2.1,0s-0.6,1.5,0,2.1l9.1,9.1l-9.1,9.1c-0.6,0.6-0.6,1.5,0,2.1c0.3,0.3,0.7,0.4,1.1,0.4s0.8-0.1,1.1-0.4l9.1-9.1l9.1,9.1c0.3,0.3,0.7,0.4,1.1,0.4s0.8-0.1,1.1-0.4c0.6-0.6,0.6-1.5,0-2.1L38.7,36.7z" />
+        </svg>
+        <div class="success_msg title qk-display--none qk-pos--abs qk-l--0 qk-w--100 qk-text--center">{{ 'theme.already_add_cart' | t }}</div>
+        <div class="success_update_msg title qk-display--none qk-pos--abs qk-l--0 qk-w--100 qk-text--center">{{ 'theme.update_cart' | t }}</div>
+        <div class="fail_msg title qk-display--none qk-pos--abs qk-l--0 qk-w--100 qk-text--center">{{ 'theme.network_error_msg' | t }}</div>
+      </div>
+    </div>
+  </body>
+
+  {{ 'js/sub_vendor.js' | cyberbiz_theme_asset_url | script_tag }}
+  {{ 'js/theme_helper.js' | cyberbiz_theme_asset_url | script_tag }}
+
+  <!-- theme assets -->
+  {{ 'js/main.js' | asset_url | script_tag }}
+  {{ 'js/theme.js' | cyberbiz_theme_asset_url | script_tag }}
+
+  <!-- for cache -->
+  {{ 'js/cacheable.js' | cyberbiz_theme_asset_url | script_tag }}
+
+  <script>
+    
+    $(document).ready(function() {
+      //if (window.location.pathname != '' && window.location.pathname != '/') {
+      //  document.getElementById('index-popular-tags').style.display = 'none'
+      // }
+
+      // 倒數計時
+      function adjustContentTop() {
+
+        const isNavbarTransparent = false;
+        let headerHeight = $("#header").outerHeight();
+        const qkHiddenPc = $('#header .qk-hidden--pc').outerHeight();
+        if (isNavbarTransparent && $('#template').width() >= 992) {
+          headerHeight -= $('.computer_nav').height();
+        }
+        const floatFilterHeight = $('#float-filter').innerHeight() || 0;
+        $("body").css({
+          // "padding-top": (headerHeight - floatFilterHeight) + "px"
+          "padding-top": (headerHeight - floatFilterHeight - qkHiddenPc) + "px"
+        });
+      }
+
+
+      // navbar設定透明
+      $(window).on("load resize", adjustContentTop);
+      $('img.header_banner').on('load', adjustContentTop);
+
+
+   
+
+  // window.renderNavbarSection({
+  //   el: '.main_nav',
+  //   data: {
+  //     navbarCollections: [
+  //       {
+  //         "title": "首頁商品",
+  //         "url": "/collections/frontpage",
+  //         "products": []
+  //       }
+  //     ],
+  //     settings: {
+  //       menuDisplayStyle: "three_dimension_menu"
+  //     }
+  //   }
+  // });
+
+
+    });
+
+    $(document).ready((function() {
+        // 顯示/隱藏navbar
+        var t = window.pageYOffset;
+        window.showHeaderSwitch = !0,
+        $(window).on("scroll", (function() {
+            var n = window.pageYOffset
+              , e = $("#header").height()
+              , hiddenpc = $("#header .qk-hidden--pc").height()
+              , r = $("#float-filter").innerHeight() || 0;
+            //if (t > e - r - 10)
+            if (t > e - r - hiddenpc - 100)
+                if (n > t){
+                    //$("#header").css("top", "".concat(-1 * (e - r), "px"));
+                    // $("#header").css("top", "".concat(-1 * ($('.header_nav').height()), "px"));
+                    $("#header").css("top", "".concat(-1 * ($('.header_logo').height()), "px"));
+
+                }
+                else {
+                    if (!window.showHeaderSwitch)
+                        return;
+                    $("#header").css("top", "0px")
+                }
+            t = n
+        }
+        )),
+        $(".dropdown_toggle").on("touchstart", (function() {
+            "none" === $(this).siblings(".dropdown_menu").css("display") ? ($(".dropdown_menu").hide(),
+            $(this).siblings(".dropdown_menu").show()) : $(this).siblings(".dropdown_menu").hide()
+        }
+        ))
+    }
+    ))
+  </script>
+</html>
